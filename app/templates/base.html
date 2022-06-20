@@ -1,0 +1,13 @@
+<!-- tweets/templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  {% for tweet in object_list %}
+    <div class="card" >
+      <div class="card-body">
+        <h5 class="card-title">{{ tweet.text }}</h5>
+        <p class="card-text">{{ tweet.id }}</p>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock content %}

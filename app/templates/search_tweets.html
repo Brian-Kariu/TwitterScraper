@@ -1,0 +1,11 @@
+<!-- tweets/templates/home.html -->
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% block content %}
+    <h4>Search Username</h4>
+    <form action="" method="post">{% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons submit='Ok' %}{% endbuttons %}
+    </form>
+{% endblock content %}

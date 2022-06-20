@@ -1,0 +1,19 @@
+<!-- tweets/templates/home.html -->
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  {% for tweet in object_list %}
+    <div class="card">
+      <div class="card-body">
+        <h4>{{ tweet.text }}</h4>
+        <p>{{ tweet.id }}</p>
+        <p>{{ tweet.username }}</p>
+        <form action="{% url 'detailed_tweet' %}" method="post">{% csrf_token %}
+          {{ form|crispy }}
+          {{ form.as_p }}
+          <input id="id" type="hidden" name="id" value="{{ tweet.id }}">
+          <input type="submit" value="Like" name="Like" />
+        </form>
+    </div>
+  {% endfor %}
+{% endblock content %}
